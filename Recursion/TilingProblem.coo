@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int f(int n){
+
+
+
+		if(n<4) return 1;
+		
+
+
+
+		return f(n-1)+f(n-4);
+
+
+
+}
+
+
+int main(){
+	int n;
+	cin>>n;
+	int ct=0;
+
+	cout<<f(n)<<endl;
+
+
+	
+
+
+
+ return 0;
+	
+}
