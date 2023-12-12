@@ -16,54 +16,34 @@ int solver(vector <int> v,int n, int i){
 
 	}
 
-	if(memo[i]!=-1 && i>1) return memo[i];
+	if(i+3<n){
+if(memo[i]!=-1) return memo[i];
 
 	int mini=min(solver(v,n,i+1),solver(v,n,i+2));
 	mini=min(mini,solver(v,n,i+3));
 	ans+=mini;
-	cout<<"memo["<<i<<"]="<<ans<<endl;;
 	memo[i]=ans;
 	 return ans;
 
-
-}
-
-int solver2(vector <int> v,int n, int i){
-
-	int ans=v[i];
-	
-
-	if(i>n-3){
-
-		
-		return ans;
-
-
-	}
+	} return v[i];
 
 	
 
-	int mini=min(solver2(v,n,i+1),solver2(v,n,i+2));
-	mini=min(mini,solver2(v,n,i+3));
-	ans+=mini;
-	 return ans;
-
 
 }
+
+
 int supw(vector <int> v,int n){
 
-	int mini=0;
+	int mini=INT_MAX;
 
 	for(int i=0;i<3;i++){
-	mini=INT_MAX;
-	memo.resize(n,-1);
-	mini=min(solver(v,n,i),mini);
-	}
-
-
 	
+	memo.resize(n,-1);
 
-
+	mini=min(solver(v,n,i),mini);
+	
+	}
 
 	return mini;
 
@@ -71,10 +51,10 @@ int supw(vector <int> v,int n){
 int main()
 {
 
-	int n=8;
-	vector<int> v={1,2,3,4,5,6,7,8};
+	int n=10;
+	vector<int> v={3,2,1,1,2,3,1,3,2,1};
 
-	memo.resize(n,-1);
+	
 	
 
 	cout<<supw(v,n)<<endl;
