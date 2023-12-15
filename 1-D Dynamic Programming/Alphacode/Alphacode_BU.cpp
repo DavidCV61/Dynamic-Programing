@@ -50,7 +50,6 @@ return ans[n];
  }
 
 int32_t main() {
-9.
 
 	while (1) {
 		cin >> s;
